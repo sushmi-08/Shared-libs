@@ -1,0 +1,22 @@
+<app-navbar />
+<!-- Main Content -->
+<div class="min-h-screen p-4 z-0 bg-gray-100">
+  <div *ngFor="let category of categories" class="mb-6">
+    <!-- Category Title -->
+    <h2 class="text-xl font-bold mb-4">{{ category }}</h2>
+    <!-- Products -->
+    <div class="grid grid-cols-3 gap-4">
+      <div
+        *ngFor="let product of productsByCategory[category]"
+        class="bg-white p-4 shadow rounded-lg"
+      >
+        <img
+          [src]="product.imageUrl"
+          [alt]="product.name"
+          class="w-full h-40 object-cover rounded-lg cursor-pointer"
+          (click)="onProductClick(product.id)"
+        />
+      </div>
+    </div>
+  </div>
+</div>

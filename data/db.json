@@ -1,0 +1,202 @@
+{
+  "users": [
+    {
+      "id": "1",
+      "name": "MS Dhoni",
+      "email": "dhoni@csk.com",
+      "password": "1234",
+      "lastLogInAt": "2024-12-30T07:58:21.067Z",
+      "boughtItems": [
+        {
+          "itemName": "Laptop",
+          "quantity": 1
+        },
+        {
+          "itemName": "Wireless Mouse",
+          "quantity": 2
+        }
+      ],
+      "cartItems": [
+        {
+          "itemName": "Smartphone",
+          "quantity": 1
+        },
+        {
+          "itemName": "Headphones",
+          "quantity": 1
+        }
+      ],
+      "cartItemCount": 2
+    },
+    {
+      "id": "2",
+      "name": "Rohit Sharma",
+      "email": "rohit@mi.com",
+      "password": "1234",
+      "lastLogInAt": "2024-03-18T12:00:00Z",
+      "boughtItems": [
+        {
+          "itemName": "Blender",
+          "quantity": 1
+        }
+      ],
+      "cartItems": [
+        {
+          "itemName": "Running Shoes",
+          "quantity": 1
+        },
+        {
+          "itemName": "Wrist Watch",
+          "quantity": 1
+        }
+      ],
+      "cartItemCount": 2
+    }
+  ],
+  "products": [
+    {
+      "id": "101",
+      "name": "Smartphone",
+      "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRSl0UGbtTFrq2WSmLieV-Ix8Kc6PGaDqFF2A&s",
+      "description": "A high-performance smartphone with 128GB storage.",
+      "price": 699,
+      "category": "Electronics"
+    },
+    {
+      "id": "102",
+      "name": "Laptop",
+      "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQQtbkKW8hkHAoNSi9Acu5ePqvhQNsEAIucfQ&s",
+      "description": "A powerful laptop for work and gaming.",
+      "price": 1200,
+      "category": "Electronics"
+    },
+    {
+      "id": "103",
+      "name": "Wireless Mouse",
+      "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSfy7_ABOI0nfmKS4I-qB49Gu2QX3SShr7qRA&s",
+      "description": "Ergonomic wireless mouse with long battery life.",
+      "price": 25,
+      "category": "Electronics"
+    },
+    {
+      "id": "104",
+      "name": "Headphones",
+      "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRbq6gd9icKQJUq6nxCLg4S7bHHQsuQwToHYA&s",
+      "description": "Noise-cancelling over-ear headphones.",
+      "price": 199,
+      "category": "Electronics"
+    },
+    {
+      "id": "105",
+      "name": "Smartwatch",
+      "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT6IJ7JYxCfS_DFo5utK4C6KGN1ouNYqv93_A&s",
+      "description": "Smartwatch with fitness tracking features.",
+      "price": 299,
+      "category": "Electronics"
+    },
+    {
+      "id": "106",
+      "name": "Tablet",
+      "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTU3cv033W4S3--nte1Ke-GlyKUHrc6dC8syg&s",
+      "description": "Lightweight tablet for media consumption.",
+      "price": 499,
+      "category": "Electronics"
+    },
+    {
+      "id": "201",
+      "name": "Running Shoes",
+      "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQZs5JHBNl4d0v4ZzgIALq6ZDM0IKnBpyZWBQ&s",
+      "description": "Comfortable running shoes for all terrains.",
+      "price": 80,
+      "category": "Footwear"
+    },
+    {
+      "id": "202",
+      "name": "Casual Sneakers",
+      "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS_VJNcSiqilRP5kg_aFn4wWIK81dX00Xgp4g&s",
+      "description": "Stylish sneakers for everyday use.",
+      "price": 60,
+      "category": "Footwear"
+    },
+    {
+      "id": "203",
+      "name": "Formal Shoes",
+      "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTf9AF2dBjRhkt3EcpCG2vGwDmONWtxICR4Jg&s",
+      "description": "Elegant formal shoes for office wear.",
+      "price": 120,
+      "category": "Footwear"
+    },
+    {
+      "id": "204",
+      "name": "Sandals",
+      "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSxZfxs4xwPcox7c9RlTboywZEQ-QVHMiGHQw&s",
+      "description": "Durable sandals for outdoor activities.",
+      "price": 40,
+      "category": "Footwear"
+    },
+    {
+      "id": "205",
+      "name": "Wrist Watch",
+      "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRB_F0NRj2NPbowuRXRVfReTMByAtiEq_D6iA&s",
+      "description": "Luxury wrist watch with a classic design.",
+      "price": 350,
+      "category": "Accessories"
+    },
+    {
+      "id": "206",
+      "name": "Backpack",
+      "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQlApmgIDIJLFxJaRq61nHiHiM3QGKAigvWrw&s",
+      "description": "Spacious and sturdy backpack for travel.",
+      "price": 75,
+      "category": "Accessories"
+    },
+    {
+      "id": "301",
+      "name": "Blender",
+      "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSwAop-KmOn2khEcVZgS8fORG0moeEyeNPFXw&s",
+      "description": "High-speed blender for smoothies and shakes.",
+      "price": 150,
+      "category": "Home Appliances"
+    },
+    {
+      "id": "302",
+      "name": "Microwave",
+      "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR7xB4_YLQp9wHg0lFxJC6E72KKtE25CVzH3g&s",
+      "description": "Compact microwave with multiple settings.",
+      "price": 250,
+      "category": "Home Appliances"
+    },
+    {
+      "id": "303",
+      "name": "Air Conditioner",
+      "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQlDOM8p1wYO6l80Ri5EiNvNKtwiA5hrJC_Sg&s",
+      "description": "Energy-efficient air conditioner for your home.",
+      "price": 1200,
+      "category": "Home Appliances"
+    },
+    {
+      "id": "304",
+      "name": "Vacuum Cleaner",
+      "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQmz0Q2NFtLTZtdg53WRXIZMcs1x70nDMlpzQ&s",
+      "description": "Powerful vacuum cleaner for all surfaces.",
+      "price": 300,
+      "category": "Home Appliances"
+    },
+    {
+      "id": "305",
+      "name": "Washing Machine",
+      "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRa30sGQrjrhuhvkPYgnDGy9PS04DUzclRRSQ&s",
+      "description": "Automatic washing machine with smart features.",
+      "price": 800,
+      "category": "Home Appliances"
+    },
+    {
+      "id": "306",
+      "name": "Refrigerator",
+      "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS8ftRT7PR0NklcjeUqb9hNwJPOBDkz0OGF7Q&s",
+      "description": "Large capacity refrigerator with freezer.",
+      "price": 1000,
+      "category": "Home Appliances"
+    }
+  ]
+}

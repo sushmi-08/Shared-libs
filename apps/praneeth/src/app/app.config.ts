@@ -9,7 +9,12 @@ import { provideRouter } from '@angular/router';
 import { provideEffects } from '@ngrx/effects';
 import { provideStore } from '@ngrx/store';
 import { provideStoreDevtools } from '@ngrx/store-devtools';
-import { SharedStoreModule } from '@shared-libs/shared-lib';
+import {
+	AuthEffects,
+	ProductEffects,
+	productReducer,
+	userReducer,
+} from '@shared-libs/shared-lib';
 
 import { appRoutes } from './app.routes';
 
@@ -19,9 +24,8 @@ export const appConfig: ApplicationConfig = {
     provideZoneChangeDetection({ eventCoalescing: true }),
     provideHttpClient(),
     provideRouter(appRoutes),
-    provideStore(),
-    provideEffects(),
+    provideStore({user: userReducer, products: productReducer}),
+    provideEffects([AuthEffects, ProductEffects]),
     provideStoreDevtools({ maxAge: 25, logOnly: !isDevMode() }),
-    SharedStoreModule
   ],
 };
