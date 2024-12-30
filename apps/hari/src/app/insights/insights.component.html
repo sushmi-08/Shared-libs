@@ -1,0 +1,37 @@
+<div class="subbrand-insights">
+    <h1>Subbrand Insights</h1>
+    <div *ngIf="subbrand">
+      <h2>{{ subbrand.name }} Insights</h2>
+      <p><strong>Industry:</strong> {{ subbrand.industry }}</p>
+      <p><strong>Market:</strong> {{ subbrand.market }}</p>
+      <p><strong>Revenue:</strong> {{ subbrand.revenue | currency }}</p>
+      <p><strong>Profit:</strong> {{ subbrand.profit | currency }}</p>
+      <p><strong>Growth Rate:</strong> {{ subbrand.growthRate }}%</p>
+      <p><strong>Insight:</strong> {{ subbrand.insights }}</p>
+  
+      <h3>Performance Metrics</h3>
+      <ul>
+        <li>Market Share: {{ subbrand.performanceMetrics.marketShare }}%</li>
+        <li>Customer Satisfaction: {{ subbrand.performanceMetrics.customerSatisfaction }}%</li>
+      </ul>
+  
+      <h3>Quarterly Revenue</h3>
+      <ul>
+        <li *ngFor="let revenue of subbrand.performanceMetrics.quarterlyRevenue">
+          Quarter Revenue: {{ revenue | currency }}
+        </li>
+      </ul>
+  
+      <h3>Products</h3>
+      <ul>
+        <li *ngFor="let product of subbrand.products">
+          <strong>{{ product.name }}</strong><br />
+          Category: {{ product.category }}<br />
+          Revenue: {{ product.revenue | currency }}<br />
+          Profit: {{ product.profit | currency }}<br />
+          Growth Rate: {{ product.growthRate }}%
+        </li>
+      </ul>
+    </div>
+  </div>
+  

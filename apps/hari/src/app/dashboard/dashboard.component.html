@@ -1,0 +1,91 @@
+<!-- src/app/dashboard/dashboard.component.html -->
+<div class="flex h-screen bg-gray-100">
+    <!-- Sidebar -->
+    <aside class="w-64 bg-gray-800 text-white p-6">
+      <h2 class="text-2xl font-bold mb-6">Dashboard</h2>
+      <ul>
+        <li class="mb-4">
+          <a href="#" class="hover:bg-gray-700 px-4 py-2 rounded">Home</a>
+        </li>
+        <li class="mb-4">
+          <a href="#" class="hover:bg-gray-700 px-4 py-2 rounded">Settings</a>
+        </li>
+        <li class="mb-4">
+          <a href="#" class="hover:bg-gray-700 px-4 py-2 rounded">Analytics</a>
+        </li>
+      </ul>
+    </aside>
+  
+    <!-- Main content -->
+    <div class="flex-1 p-6">
+      <!-- Top navbar -->
+      <div class="flex justify-between items-center mb-6">
+        <div class="text-2xl font-bold">Welcome to Your Dashboard</div>
+        <div class="flex items-center space-x-4">
+          <span class="text-lg mr-3">John Doe</span>
+          <!-- <button class="bg-blue-600 text-white px-4 py-2 rounded">Logout</button> -->
+        </div>
+      </div>
+  
+      <!-- Stats or content here -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <!-- Card 1 -->
+        <div class="bg-white p-6 rounded-lg shadow-lg">
+          <div class="text-xl font-semibold">Total Users</div>
+          <div class="text-3xl font-bold text-blue-600 mt-2">3,204</div>
+        </div>
+        <!-- Card 2 -->
+        <div class="bg-white p-6 rounded-lg shadow-lg">
+          <div class="text-xl font-semibold">Revenue</div>
+          <div class="text-3xl font-bold text-green-600 mt-2">$12,458</div>
+        </div>
+        <!-- Card 3 -->
+        <div class="bg-white p-6 rounded-lg shadow-lg">
+          <div class="text-xl font-semibold">Active Sessions</div>
+          <div class="text-3xl font-bold text-yellow-600 mt-2">98</div>
+        </div>
+      </div>
+      <div class="p-6 bg-gray-100">
+        <h1 class="text-2xl font-semibold mb-6">Subbrands Overview</h1>
+      
+        <div class="overflow-x-auto bg-white shadow-md rounded-lg">
+          <table class="min-w-full table-auto">
+            <thead class="bg-gray-200">
+              <tr>
+                <th class="px-4 py-3 text-left text-sm font-medium text-gray-700">Name</th>
+                <th class="px-4 py-3 text-left text-sm font-medium text-gray-700">Industry</th>
+                <th class="px-4 py-3 text-left text-sm font-medium text-gray-700">Revenue</th>
+                <th class="px-4 py-3 text-left text-sm font-medium text-gray-700">Profit</th>
+                <th class="px-4 py-3 text-left text-sm font-medium text-gray-700">Users</th>
+                <th class="px-4 py-3 text-left text-sm font-medium text-gray-700">Growth Rate</th>
+               
+              </tr>
+            </thead>
+            <tbody>
+              <tr
+                *ngFor="let subbrand of  businessData?.subbrands"
+                class="hover:bg-gray-50 cursor-pointer"
+                (click)="showInsights(subbrand.id)"
+                
+              >
+                <td class="px-4 py-3 text-sm text-gray-700">{{ subbrand.name }}</td>
+                <td class="px-4 py-3 text-sm text-gray-700">{{ subbrand.industry  }}</td>
+                <td class="px-4 py-3 text-sm text-gray-700">${{ subbrand.revenue | currency }}</td>
+                <td class="px-4 py-3 text-sm text-gray-700">{{ subbrand.profit |currency}}</td>
+                <td class="px-4 py-3 text-sm text-gray-700">{{ subbrand.users |number}}</td>
+                <td class="px-4 py-3 text-sm text-gray-700">{{ subbrand.growthRate }}%</td>
+                <!-- <td class="px-4 py-3 text-sm text-gray-700">${{ subbrand.insights | number }}</td> -->
+               
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div>
+        <echarts [options]="chartOptions"  style="width: 600px; height: 400px;"></echarts>
+      </div>
+     
+      
+    </div>
+  </div>
+  
