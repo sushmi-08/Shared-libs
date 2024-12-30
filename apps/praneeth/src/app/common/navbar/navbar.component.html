@@ -1,0 +1,45 @@
+<!-- Navbar -->
+<div class="flex items-center justify-between bg-blue-900 shadow-md px-4 py-2 z-20 relative">
+  <!-- Sidebar Button -->
+  <button (click)="toggleSidebar()" class="text-white text-lg focus:outline-none">
+    ☰
+  </button>
+  <!-- Logo -->
+  <div class="text-lg font-bold text-white">E-Shop</div>
+  <!-- Search Bar -->
+  <div class="relative">
+    <input
+      type="text"
+      class="px-4 py-2 border rounded-lg w-64 focus:outline-none focus:ring-2 focus:ring-blue-500"
+      placeholder="Search products..."
+      (focus)="onSearchFocus()"
+      (blur)="onSearchBlur()"
+    />
+  </div>
+  <!-- Cart -->
+  <div class="text-white text-lg cursor-pointer">🛒 Cart: {{cartQty}}</div>
+</div>
+
+<!-- Overlay -->
+<div
+  *ngIf="isSearching"
+  class="fixed inset-0 bg-black bg-opacity-50 z-10"
+  (click)="onSearchBlur()"
+></div>
+
+<!-- Sidebar -->
+<div
+  *ngIf="showSidebar"
+  class="fixed inset-0 bg-black bg-opacity-50 z-10"
+  (click)="toggleSidebar()"
+></div>
+<div
+  *ngIf="showSidebar"
+  class="fixed top-0 left-0 w-64 h-full bg-white shadow-md z-20 p-4"
+>
+  <h2 class="font-bold text-lg mb-4">Sidebar</h2>
+  <a href="#" class="block mb-2 text-gray-700 hover:text-blue-500">Link 1</a>
+  <a href="#" class="block mb-2 text-gray-700 hover:text-blue-500">Link 2</a>
+  <a href="#" class="block mb-2 text-gray-700 hover:text-blue-500">Link 3</a>
+  <p>Last Signed in {{timeAgo}}</p>
+</div>
