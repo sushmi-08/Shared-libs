@@ -1,3 +1,5 @@
+import { take } from 'rxjs/operators';
+
 import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
@@ -13,6 +15,7 @@ import {
 } from '@shared-libs/shared-lib';
 
 import { NavbarComponent } from '../../common/navbar/navbar.component';
+import { UserService } from '../../services/user.service';
 
 @Component({
   selector: 'app-home',
@@ -26,17 +29,20 @@ export class HomeComponent implements OnInit {
   userId: string | undefined = '';
   cartQty = 0;
 
-  constructor(private store: Store, private router: Router) {
-    this.store.select(selectUserId).subscribe((userId) => {
+  constructor(private store: Store, private router: Router, private service: UserService) {
+    if (this.service.lastSignInCheck) {
+      this.store.select(selectUserId).subscribe((userId) => {
       this.userId = userId as string;
       this.store.dispatch(lastSignInAction.updateLastSignIn({ userId: this.userId }));
-    });
+      });
+      this.service.lastSignInCheck = false;
+    }
 
     this.store.select(selectUserCartQty).subscribe((cartQty) => {
       this.cartQty = cartQty as number;
-    })
+    });
 
-    this.store.dispatch(productAction.loadProducts())
+    this.store.dispatch(productAction.loadProducts());
   }
 
   showSidebar = false;

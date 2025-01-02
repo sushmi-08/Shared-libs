@@ -5,24 +5,28 @@
       "name": "MS Dhoni",
       "email": "dhoni@csk.com",
       "password": "1234",
-      "lastLogInAt": "2024-12-30T07:58:21.067Z",
+      "lastLogInAt": "2025-01-02T09:29:46.312Z",
       "boughtItems": [
         {
+          "id": "102",
           "itemName": "Laptop",
           "quantity": 1
         },
         {
+          "id": "103",
           "itemName": "Wireless Mouse",
           "quantity": 2
         }
       ],
       "cartItems": [
         {
-          "itemName": "Smartphone",
+          "id": "104",
+          "itemName": "Headphones",
           "quantity": 1
         },
         {
-          "itemName": "Headphones",
+          "id": "105",
+          "itemName": "Smartwatch",
           "quantity": 1
         }
       ],
@@ -36,16 +40,19 @@
       "lastLogInAt": "2024-03-18T12:00:00Z",
       "boughtItems": [
         {
+          "id": "301",
           "itemName": "Blender",
           "quantity": 1
         }
       ],
       "cartItems": [
         {
+          "id": "201",
           "itemName": "Running Shoes",
           "quantity": 1
         },
         {
+          "id": "205",
           "itemName": "Wrist Watch",
           "quantity": 1
         }

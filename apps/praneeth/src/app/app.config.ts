@@ -11,6 +11,7 @@ import { provideStore } from '@ngrx/store';
 import { provideStoreDevtools } from '@ngrx/store-devtools';
 import {
 	AuthEffects,
+	CartEffects,
 	ProductEffects,
 	productReducer,
 	userReducer,
@@ -25,7 +26,7 @@ export const appConfig: ApplicationConfig = {
     provideHttpClient(),
     provideRouter(appRoutes),
     provideStore({user: userReducer, products: productReducer}),
-    provideEffects([AuthEffects, ProductEffects]),
+    provideEffects([AuthEffects, ProductEffects, CartEffects]),
     provideStoreDevtools({ maxAge: 25, logOnly: !isDevMode() }),
   ],
 };

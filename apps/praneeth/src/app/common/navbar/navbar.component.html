@@ -5,7 +5,7 @@
     ☰
   </button>
   <!-- Logo -->
-  <div class="text-lg font-bold text-white">E-Shop</div>
+  <div class="text-lg font-bold text-white cursor-pointer" routerLink="/home">E-Shop</div>
   <!-- Search Bar -->
   <div class="relative">
     <input
@@ -17,7 +17,7 @@
     />
   </div>
   <!-- Cart -->
-  <div class="text-white text-lg cursor-pointer">🛒 Cart: {{cartQty}}</div>
+  <a class="text-white text-lg cursor-pointer" routerLink="/cart">🛒 Cart: {{service.cartQty()}}</a>
 </div>
 
 <!-- Overlay -->
