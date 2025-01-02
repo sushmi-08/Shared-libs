@@ -3,6 +3,8 @@ import { CommonModule } from '@angular/common';
 import { BusinessDataService } from '../business-data.service';
 import { Business } from '../model';
 import { Router } from '@angular/router';
+import {loadBusiness} from '@shared-libs/shared-lib'
+import { Store } from '@ngrx/store';
 
 
 
@@ -16,9 +18,10 @@ import { Router } from '@angular/router';
   styleUrl: './dashboard.component.css',
 })
 export class DashboardComponent implements OnInit {
-  constructor( private businessService: BusinessDataService,private router:Router){}
+  constructor( private businessService: BusinessDataService,private router:Router,private store:Store){}
   businessData?:Business
   ngOnInit(): void {
+    this.store.dispatch(loadBusiness())
 
  this.loadBusinessData()
 

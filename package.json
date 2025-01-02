@@ -2,7 +2,10 @@
   "name": "@shared-libs/source",
   "version": "0.0.0",
   "license": "MIT",
-  "scripts": {},
+  "scripts": {
+    "business":"json-server --watch business.json --port 4000"
+
+  },
   "private": true,
   "dependencies": {
     "@angular/animations": "~18.1.0",
