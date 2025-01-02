@@ -2,28 +2,29 @@ import { interval, Subscription } from 'rxjs';
 
 import { CommonModule } from '@angular/common';
 import { AfterViewInit, Component, OnDestroy, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 import { Store } from '@ngrx/store';
 import {
 	selectUserCartQty,
 	selectUserLastLogIn,
 } from '@shared-libs/shared-lib';
 
+import { UserService } from '../../services/user.service';
+
 @Component({
   selector: 'app-navbar',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, RouterLink],
   templateUrl: './navbar.component.html',
   styleUrl: './navbar.component.css',
 })
 export class NavbarComponent implements OnDestroy, AfterViewInit {
 
-  cartQty = 0;
   lastLogInAt: Date = new Date()
 
-  constructor(private store: Store, private router: Router) {
+  constructor(private store: Store, private router: Router, public service: UserService) {
     this.store.select(selectUserCartQty).subscribe((cartQty) => {
-      this.cartQty = cartQty as number;
+      this.service.cartQty.set(cartQty as number);
     })
 
     this.store.select(selectUserLastLogIn).subscribe((lastLogInAt) => {

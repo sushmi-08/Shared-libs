@@ -1,0 +1,60 @@
+<app-navbar></app-navbar>
+<div class="min-h-screen flex flex-col items-center justify-center bg-gray-100 p-4">
+  <!-- <h1 class="text-2xl font-bold mb-6">Your Cart</h1> -->
+
+  @if (cartItems.length === 0) {
+    <div class="text-gray-500 text-lg">
+      Your cart is empty.
+    </div>
+  }
+
+  @for (item of cartItems; track $index) {
+    <div class="bg-white shadow-lg rounded-lg overflow-hidden flex flex-col md:flex-row max-w-4xl w-full mb-6">
+      <!-- Product Image -->
+      <div class="md:w-1/3">
+        <img
+          [src]="getProductDetails(item.id).imageUrl"
+          [alt]="getProductDetails(item.id).name"
+          class="object-cover w-full h-64 md:h-full"
+        />
+      </div>
+
+      <!-- Product Details -->
+      <div class="p-6 md:w-2/3 flex flex-col">
+        <!-- Product Name -->
+        <h1 class="text-2xl font-bold text-gray-800 mb-2">
+          {{ getProductDetails(item.id).name }}
+        </h1>
+
+        <!-- Product Description -->
+        <p class="text-gray-600 mb-4">
+          {{ getProductDetails(item.id).description }}
+        </p>
+
+        <!-- Quantity -->
+        <div class="flex items-center mb-6">
+          <span class="text-gray-700 mr-2">Quantity:</span>
+          <span class="text-lg font-semibold text-gray-800">
+            {{ item.quantity }}
+          </span>
+        </div>
+
+        <!-- Buttons -->
+        <div class="flex space-x-4">
+          <button
+            (click)="removeFromCart(item.id)"
+            class="bg-red-500 text-white py-2 px-4 rounded-lg hover:bg-red-600 transition"
+          >
+            Remove from Cart
+          </button>
+          <button
+            (click)="buyItem(item.id)"
+            class="bg-green-500 text-white py-2 px-4 rounded-lg hover:bg-green-600 transition"
+          >
+            Buy Now
+          </button>
+        </div>
+      </div>
+    </div>
+  }
+</div>

@@ -2,7 +2,13 @@ import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Store } from '@ngrx/store';
-import { Product, selectProductById } from '@shared-libs/shared-lib';
+import {
+	addToCartActions,
+	cartQtyActions,
+	Product,
+	selectProductById,
+	selectUserId,
+} from '@shared-libs/shared-lib';
 
 import { NavbarComponent } from '../../common/navbar/navbar.component';
 
@@ -14,7 +20,14 @@ import { NavbarComponent } from '../../common/navbar/navbar.component';
   styleUrl: './product.component.css',
 })
 export class ProductComponent implements OnInit {
-  constructor(private store: Store, public router: Router, public activeRoute: ActivatedRoute) { }
+
+  userId = ''
+
+  constructor(private store: Store, public router: Router, public activeRoute: ActivatedRoute) {
+    this.store.select(selectUserId).subscribe((userId) => {
+      if (userId) { this.userId = userId }
+    })
+  }
 
   product: Product = {
     id: '',
@@ -35,6 +48,9 @@ export class ProductComponent implements OnInit {
   }
 
   addToCart(product: Product) {
-    console.log('yoyo')
+    this.store.dispatch(addToCartActions.addToCart({ userId: this.userId, productId: product.id, productName: product.name }));
+    setTimeout(() => {
+      this.store.dispatch(cartQtyActions.incrementCartQty({userId: this.userId}));
+    }, 2000)
   }
 }
