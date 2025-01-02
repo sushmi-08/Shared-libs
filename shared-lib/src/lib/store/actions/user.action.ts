@@ -18,5 +18,5 @@ export const lastSignInAction = createActionGroup({
     'Update Last Sign In' : props<{userId: string}>(),
     'Update Last Sign In Success': props<{user: User}>(),
     'Update Last Sign In Failure': props<{error: string}>(),
-  },
+  }
 })
