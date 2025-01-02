@@ -3,8 +3,9 @@ import { CommonModule } from '@angular/common';
 import { BusinessDataService } from '../business-data.service';
 import { Business } from '../model';
 import { Router } from '@angular/router';
-import {loadBusiness} from '@shared-libs/shared-lib'
+import {BusinessActions, selectBusiness} from '@shared-libs/shared-lib'
 import { Store } from '@ngrx/store';
+import { Observable } from 'rxjs';
 
 
 
@@ -20,8 +21,10 @@ import { Store } from '@ngrx/store';
 export class DashboardComponent implements OnInit {
   constructor( private businessService: BusinessDataService,private router:Router,private store:Store){}
   businessData?:Business
+  business$?:Observable<Business>
   ngOnInit(): void {
-    this.store.dispatch(loadBusiness())
+    this.store.dispatch(BusinessActions.loadBusiness())
+    this.business$ = this.store.select(selectBusiness)
 
  this.loadBusinessData()
 

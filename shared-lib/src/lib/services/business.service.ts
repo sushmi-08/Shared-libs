@@ -6,11 +6,11 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class BusinessService {
-  private apiUrl = 'http://localhost:3000/business';
+//   private apiUrl = 'http://localhost:3000/business';
 
-  constructor(private http: HttpClient) {}
+//   constructor(private http: HttpClient) {}
 
-  getBusiness(): Observable<any[]> {
-    return this.http.get<any[]>(this.apiUrl);
-  }
+//   getBusiness(): Observable<any[]> {
+//     return this.http.get<any[]>(this.apiUrl);
+//   }
 }
