@@ -1,0 +1,41 @@
+{
+    "groceryData" :[
+      {
+        "id": 1,
+        "grocery_name": "Apples",
+        "image_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTS_Db0jJvWe6vYScLksI8qoM2WCeHfJnSBVw&s",
+        "quantity": 10
+      },
+      {
+        "id": 2,
+        "grocery_name": "Bananas",
+        "image_url": "https://www.jiomart.com/images/product/original/590000454/banana-robusta-1-kg-product-images-o590000454-p590000454-0-202410011654.jpg?im=Resize=(1000,1000)",
+        "quantity": 6
+      },
+      {
+        "id": 3,
+        "grocery_name": "Carrots",
+        "image_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSUD0UfXYXUdpzKvH3TlEulgbI0siG9Aqi3OA&s",
+        "quantity": 5
+      },
+      {
+        "id": 4,
+        "grocery_name": "Milk",
+        "image_url": "https://as1.ftcdn.net/v2/jpg/01/06/68/88/1000_F_106688812_rVoRFXazgIMEUJdvffG9p0XvP8Lntf0a.jpg",
+        "quantity": 2
+      },
+      {
+        "id": 5,
+        "grocery_name": "Bread",
+        "image_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTgVuo_sYN__UzUkBoVI4C_21Fy8IOqEcPldA&s",
+        "quantity": 1
+      },
+      {
+        "id": 6,
+        "grocery_name": "Eggs",
+        "image_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQGV14fmpTsjddfymiQea7-pTbHCM9-1Oow4w&s",
+        "quantity": 12
+      }
+    ]
+  }
+    
