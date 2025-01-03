@@ -1,0 +1,64 @@
+<div class="min-h-screen flex justify-center items-center bg-gradient-to-r from-gray-800 to-black">
+    <div class="w-full max-w-md p-8 bg-white rounded-lg shadow-xl">
+      <h2 class="text-3xl font-bold text-center text-gray-800 mb-6">Login</h2>
+  
+      <form (submit)="onSubmit()" class="space-y-6">
+        <!-- Email Field -->
+        <div>
+          <label for="email" class="block text-sm font-medium text-gray-800">Email</label>
+          <input
+            id="email"
+            name="email"
+            type="email"
+            [(ngModel)]="email"
+            required
+            class="mt-1 block w-full px-4 py-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition duration-200 ease-in-out"
+          />
+        </div>
+  
+        <!-- Password Field -->
+        <div>
+          <label for="password" class="block text-sm font-medium text-gray-800">Password</label>
+          <input
+            id="password"
+            name="password"
+            type="password"
+            [(ngModel)]="password"
+            required
+            class="mt-1 block w-full px-4 py-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition duration-200 ease-in-out"
+          />
+        </div>
+  
+        <!-- Remember Me and Forgot Password -->
+        <div class="flex items-center justify-between">
+          <div class="flex items-center">
+            <input
+              type="checkbox"
+              id="remember"
+              [(ngModel)]="rememberMe"
+              class="h-4 w-4 text-indigo-600 border-gray-300 rounded focus:ring-indigo-500"
+            />
+            <label for="remember" class="ml-2 text-sm text-gray-700">Remember me</label>
+          </div>
+          <a href="#" class="text-sm text-indigo-600 hover:text-indigo-800 transition duration-200 ease-in-out">Forgot password?</a>
+        </div>
+  
+        <!-- Submit Button -->
+        <div>
+          <button
+            type="submit"
+            [disabled]="!email || !password"
+            class="w-full py-3 px-4 bg-indigo-600 text-white font-semibold rounded-md shadow-md focus:outline-none hover:bg-indigo-700 transition duration-200 ease-in-out disabled:bg-gray-300"
+          >
+            Log in
+          </button>
+        </div>
+      </form>
+  
+      <!-- Sign Up Link -->
+      <div class="mt-6 text-center">
+        <p class="text-sm text-gray-600">Don't have an account? <a href="#" class="text-indigo-600 hover:text-indigo-800 transition duration-200 ease-in-out">Sign up</a></p>
+      </div>
+    </div>
+  </div>
+  

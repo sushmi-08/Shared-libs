@@ -8,6 +8,7 @@ import { NgxEchartsConfig } from 'ngx-echarts/lib/ngx-echarts.directive';
 import { BusinessEffects, businessReducer } from '@shared-libs/shared-lib';
 import { provideEffects } from '@ngrx/effects';
 import { provideHttpClient } from '@angular/common/http';
+import { provideStoreDevtools } from '@ngrx/store-devtools';
 const ngxEchartsConfig: NgxEchartsConfig = {
   echarts: () => import('echarts')
 }
@@ -20,6 +21,7 @@ export const appConfig: ApplicationConfig = {
     provideRouter(appRoutes),
     provideStore({business: businessReducer}),
     provideEffects([BusinessEffects]),
-    { provide: NGX_ECHARTS_CONFIG, useValue: ngxEchartsConfig }
+    { provide: NGX_ECHARTS_CONFIG, useValue: ngxEchartsConfig },
+    provideStoreDevtools({ maxAge: 25, logOnly: !isDevMode() }),
 ],
 };
