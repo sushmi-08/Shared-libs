@@ -19,16 +19,11 @@ export class LoginComponent implements OnInit {
   password: string = '';
   rememberMe: boolean = false;
   ngOnInit(): void {
-console.log("login page")
+
   }
   onSubmit(): void {
     if (this.email && this.password) {
-      // Handle login logic here (e.g., call an API or store credentials)
-      console.log('Login attempt with:', {
-        email: this.email,
-        password: this.password,
-        rememberMe: this.rememberMe
-      });
+  
       const credentials={email:this.email,password:this.password}
       this.store.dispatch(userAction.userLogin(credentials));
       this.router.navigate(['/dashboard']);

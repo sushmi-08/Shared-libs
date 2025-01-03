@@ -38,7 +38,6 @@ export class DashboardComponent implements OnInit {
   //   });
   // }
   showInsights(id:number){
-    console.log(id)
     this.router.navigate([`/insights/${id}`])
   }
 

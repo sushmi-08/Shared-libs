@@ -2,7 +2,7 @@
     {"id":1,
 "name":"harkrishnan",
 "email":"harikrishnan@gmail.com",
-"password":"1234",
+"password":"Qwerty",
 "business":{
     "id": 1,
     "name": "Tech Solutions",
@@ -333,7 +333,237 @@
       }
     ]
   }
-}
+},
+{
+    "id": 2,
+    "name": "John Doe",
+    "email": "johndoe@gmail.com",
+    "password": "Qwerty",
+    "business": {
+      "id": 1,
+      "name": "Tech Solutions",
+      "industry": "Technology",
+      "revenue": 45000000,
+      "profit": 13000000,
+      "users": 1500000,
+      "subbrands": [
+        {
+          "id": 4,
+          "name": "NextGen Robotics",
+          "industry": "Robotics & Automation",
+          "revenue": 9000000,
+          "profit": 2500000,
+          "users": 70000,
+          "market": "North America",
+          "growthRate": 28,
+          "insights": "Pushing boundaries with cutting-edge robotics technology.",
+          "products": [
+            {
+              "id": 4,
+              "name": "NextGen Autonomous Car",
+              "category": "Robotics",
+              "revenue": 4000000,
+              "profit": 800000,
+              "users": 30000,
+              "growthRate": 20,
+              "productDetails": "Self-driving cars powered by advanced AI algorithms."
+            }
+          ]
+        },
+        {
+          "id": 5,
+          "name": "SmartX",
+          "industry": "Smart Technology",
+          "revenue": 6000000,
+          "profit": 1500000,
+          "users": 120000,
+          "market": "Global",
+          "growthRate": 30,
+          "insights": "Innovative smart devices for the home and office.",
+          "products": [
+            {
+              "id": 5,
+              "name": "SmartX Home Assistant",
+              "category": "Smart Devices",
+              "revenue": 3000000,
+              "profit": 800000,
+              "users": 70000,
+              "growthRate": 25,
+              "productDetails": "Voice-controlled assistant for managing smart homes."
+            },
+            {
+              "id": 6,
+              "name": "SmartX Office Hub",
+              "category": "Smart Devices",
+              "revenue": 2000000,
+              "profit": 500000,
+              "users": 40000,
+              "growthRate": 20,
+              "productDetails": "An integrated smart office solution."
+            },
+            {
+              "id": 7,
+              "name": "SmartX Lighting",
+              "category": "Smart Devices",
+              "revenue": 1000000,
+              "profit": 200000,
+              "users": 20000,
+              "growthRate": 15,
+              "productDetails": "Smart lighting solutions with energy-saving features."
+            }
+          ]
+        },
+        {
+          "id": 6,
+          "name": "CloudX Solutions",
+          "industry": "Cloud Technology",
+          "revenue": 7000000,
+          "profit": 2000000,
+          "users": 100000,
+          "market": "Asia",
+          "growthRate": 18,
+          "insights": "Providing affordable and scalable cloud solutions.",
+          "products": [
+            {
+              "id": 8,
+              "name": "CloudX Storage",
+              "category": "Cloud Services",
+              "revenue": 3500000,
+              "profit": 800000,
+              "users": 50000,
+              "growthRate": 22,
+              "productDetails": "A cloud storage solution with encryption."
+            },
+            {
+              "id": 9,
+              "name": "CloudX Compute",
+              "category": "Cloud Services",
+              "revenue": 2500000,
+              "profit": 600000,
+              "users": 30000,
+              "growthRate": 20,
+              "productDetails": "Cloud-based computing power for enterprises."
+            },
+            {
+              "id": 10,
+              "name": "CloudX Backup",
+              "category": "Cloud Services",
+              "revenue": 1000000,
+              "profit": 200000,
+              "users": 20000,
+              "growthRate": 25,
+              "productDetails": "A reliable cloud backup solution for businesses."
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": 3,
+    "name": "Jane Smith",
+    "email": "janesmith@gmail.com",
+    "password": "secret123",
+    "business": {
+      "id": 2,
+      "name": "Healthify",
+      "industry": "Health & Wellness",
+      "revenue": 5000000,
+      "profit": 1200000,
+      "users": 200000,
+      "subbrands": [
+        {
+          "id": 7,
+          "name": "Healthify Wearables",
+          "industry": "Fitness",
+          "revenue": 2000000,
+          "profit": 500000,
+          "users": 100000,
+          "market": "Asia",
+          "growthRate": 18,
+          "insights": "Expanding health and fitness monitoring devices.",
+          "products": [
+            {
+              "id": 11,
+              "name": "Healthify Fitness Tracker",
+              "category": "Fitness",
+              "revenue": 1000000,
+              "profit": 300000,
+              "users": 50000,
+              "growthRate": 15,
+              "productDetails": "A tracker to monitor workouts and health progress."
+            }
+          ]
+        },
+        {
+          "id": 8,
+          "name": "Healthify Nutrition",
+          "industry": "Nutrition",
+          "revenue": 1500000,
+          "profit": 300000,
+          "users": 70000,
+          "market": "Europe",
+          "growthRate": 20,
+          "insights": "Health-conscious consumers driving demand for supplements.",
+          "products": [
+            {
+              "id": 12,
+              "name": "Healthify Protein Powder",
+              "category": "Nutrition",
+              "revenue": 800000,
+              "profit": 150000,
+              "users": 40000,
+              "growthRate": 25,
+              "productDetails": "A plant-based protein powder for fitness enthusiasts."
+            },
+            {
+              "id": 13,
+              "name": "Healthify Multivitamins",
+              "category": "Nutrition",
+              "revenue": 700000,
+              "profit": 120000,
+              "users": 30000,
+              "growthRate": 15,
+              "productDetails": "Multivitamins to boost overall health."
+            }
+          ]
+        },
+        {
+          "id": 9,
+          "name": "Healthify Wellness",
+          "industry": "Wellness",
+          "revenue": 1500000,
+          "profit": 400000,
+          "users": 50000,
+          "market": "Global",
+          "growthRate": 25,
+          "insights": "Demand for stress-relief and wellness products rising.",
+          "products": [
+            {
+              "id": 14,
+              "name": "Healthify Yoga Mat",
+              "category": "Wellness",
+              "revenue": 700000,
+              "profit": 150000,
+              "users": 25000,
+              "growthRate": 20,
+              "productDetails": "Eco-friendly yoga mat for fitness and wellness."
+            },
+            {
+              "id": 15,
+              "name": "Healthify Meditation App",
+              "category": "Wellness",
+              "revenue": 800000,
+              "profit": 250000,
+              "users": 30000,
+              "growthRate": 30,
+              "productDetails": "A mobile app for guided meditation and mental wellness."
+            }
+          ]
+        }
+      ]
+    }
+  }
 ]
     
   }
