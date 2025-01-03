@@ -1,0 +1,13 @@
+<div style="margin-left: 10px;">
+<h6 class="stylish-title"> Grocery List</h6>
+<div style="gap: 20px;">
+<ul style="list-style-type: none; display: flex; flex-direction: row; gap: 20px;">
+    @for (grocery of groceries$ | async; track grocery.id){
+    <li>
+        <img [src]="grocery.image_url" style="height: 200px; width: 200px;">
+        {{ grocery.grocery_name }} ({{ grocery.quantity }}) 
+    </li>
+}
+</ul>
+</div>
+</div>

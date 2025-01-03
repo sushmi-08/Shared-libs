@@ -1,0 +1,12 @@
+.stylish-title {
+    font-size: 3rem; /* Adjust the font size */
+    font-weight: bold; /* Bold text */
+    color: #4f46e5; /* Stylish purple color */
+    text-transform: uppercase; /* Capitalize all letters */
+    letter-spacing: 4px; /* Add space between letters */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3); /* Soft shadow */
+    background: linear-gradient(to right, #6b73ff, #000dff); /* Gradient color */
+    -webkit-background-clip: text; /* Clip background to text */
+    -webkit-text-fill-color: transparent; /* Make text transparent */
+    text-align: center;
+  }

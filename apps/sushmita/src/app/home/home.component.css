@@ -1,0 +1,7 @@
+.fullscreen-bg {
+    height: 100vh; /* Full screen height */
+    background-image: url('https://img.freepik.com/premium-photo/natural-vegetable-fresh_191555-802.jpg');
+    background-size: cover; /* Makes the image cover the entire area */
+    background-position: center; /* Centers the image */
+    background-repeat: no-repeat; /* Prevents the image from repeating */
+  }
