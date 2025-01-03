@@ -1,4 +1,9 @@
-{"business":{
+{ "users":[
+    {"id":1,
+"name":"harkrishnan",
+"email":"harikrishnan@gmail.com",
+"password":"1234",
+"business":{
     "id": 1,
     "name": "Tech Solutions",
     "industry": "Technology",
@@ -327,5 +332,9 @@
         }
       }
     ]
-  }}
+  }
+}
+]
+    
+  }
   

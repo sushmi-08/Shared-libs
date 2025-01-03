@@ -42,3 +42,11 @@ interface Business {
     productDetails: string;  // Additional details about the product
   }
         
+  export 
+interface User {
+    id: number;
+    name: string;
+    email: string;
+    password: string;  // Total revenue of the business
+   business:Business  // List of subbrands under the business
+  }

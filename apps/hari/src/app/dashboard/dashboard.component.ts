@@ -23,8 +23,9 @@ export class DashboardComponent implements OnInit {
   businessData?:Business
   business$?:Observable<Business>
   ngOnInit(): void {
-    this.store.dispatch(BusinessActions.loadBusiness())
+    // this.store.dispatch(BusinessActions.loadBusiness())
     this.business$ = this.store.select(selectBusiness)
+    console.log(this.business$)
 
  this.loadBusinessData()
 

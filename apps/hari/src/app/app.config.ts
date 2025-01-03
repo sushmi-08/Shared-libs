@@ -5,10 +5,11 @@ import { provideClientHydration } from '@angular/platform-browser';
 import { provideStore } from '@ngrx/store';
 import { NGX_ECHARTS_CONFIG, } from 'ngx-echarts';
 import { NgxEchartsConfig } from 'ngx-echarts/lib/ngx-echarts.directive';
-import { BusinessEffects, businessReducer } from '@shared-libs/shared-lib';
+import { BusinessEffects, businessReducer, UserEffect } from '@shared-libs/shared-lib';
 import { provideEffects } from '@ngrx/effects';
 import { provideHttpClient } from '@angular/common/http';
 import { provideStoreDevtools } from '@ngrx/store-devtools';
+import { userReducer } from 'shared-lib/src/lib/store/reducers/user.reducer';
 const ngxEchartsConfig: NgxEchartsConfig = {
   echarts: () => import('echarts')
 }
@@ -19,8 +20,8 @@ export const appConfig: ApplicationConfig = {
     provideHttpClient(),
     provideZoneChangeDetection({ eventCoalescing: true }),
     provideRouter(appRoutes),
-    provideStore({business: businessReducer}),
-    provideEffects([BusinessEffects]),
+    provideStore({business: businessReducer,user:userReducer}),
+    provideEffects([BusinessEffects,UserEffect]),
     { provide: NGX_ECHARTS_CONFIG, useValue: ngxEchartsConfig },
     provideStoreDevtools({ maxAge: 25, logOnly: !isDevMode() }),
 ],
