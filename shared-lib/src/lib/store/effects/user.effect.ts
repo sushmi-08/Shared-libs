@@ -20,16 +20,37 @@ export class UserEffect {
 
  
   
+    // login$ = createEffect(() =>
+    //   this.actions$.pipe(
+    //     ofType(userAction.userLogin),
+    //     switchMap(({ email, password }) =>
+    //       this.http
+    //         .get<User[]>(`http://localhost:4000/users?email=${email}&password=${password}`)
+    //         .pipe(
+    //           map((user) => {
+    //             if (user) {
+    //               return userAction.userLoginSuccess({ user: user[0] });
+    //             } else {
+    //               return userAction.userLoginFailure({ error: 'Invalid credentials' });
+    //             }
+    //           }),
+    //           catchError(() => of(userAction.userLoginFailure({ error: 'Server error' })))
+    //         )
+    //     )
+    //   )
+    // );
     login$ = createEffect(() =>
       this.actions$.pipe(
         ofType(userAction.userLogin),
         switchMap(({ email, password }) =>
           this.http
-            .get<User[]>(`http://localhost:4000/users?email=${email}&password=${password}`)
+            .post<any>(`http://localhost:3000/auth/login`,{email,password})
             .pipe(
               map((user) => {
+
                 if (user) {
-                  return userAction.userLoginSuccess({ user: user[0] });
+
+                  return userAction.userLoginSuccess({ user: user.response});
                 } else {
                   return userAction.userLoginFailure({ error: 'Invalid credentials' });
                 }

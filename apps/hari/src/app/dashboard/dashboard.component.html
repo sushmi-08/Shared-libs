@@ -36,8 +36,8 @@
       <div class="flex justify-between items-center mb-6">
         <div class="text-2xl font-bold">Welcome to Your Dashboard</div>
         <div class="flex items-center space-x-4">
-          <span class="text-lg mr-3">John Doe</span>
-          <!-- <button class="bg-blue-600 text-white px-4 py-2 rounded">Logout</button> -->
+          <span class="text-lg mr-3">{{username}}</span>
+          <button class="bg-blue-600 text-white px-4 py-2 rounded" (click)="logOut()">Logout</button>
         </div>
       </div>
 
