@@ -9,7 +9,7 @@ export interface UserState {
 }
   
 export const initialState: UserState = {
-  user:{},
+  user:{token:'',data:{}},
   loading: false,
   error: null
 };

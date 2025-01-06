@@ -48,6 +48,7 @@ export class DashboardComponent implements OnInit {
   logOut(){
     // this.authService.logout()
     this.store.dispatch(userAction.logout())
+    this.store.dispatch(BusinessActions.emptyBusiness())
     this.router.navigate(['/'])
   }
 

@@ -19,5 +19,6 @@ export const BusinessActions = createActionGroup({
       'Load Business': props<{userId:string}>(),
       'Load Business Success': props<{business: Business}>(),
       'Load Business Failure': props<{error: string}>(),
+      'Empty Business':emptyProps()
     },
   })

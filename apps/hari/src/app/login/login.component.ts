@@ -24,7 +24,6 @@ export class LoginComponent implements OnInit {
   password: string = '';
   rememberMe: boolean = false;
   ngOnInit(): void {
-    this.token$=this.store.select(selectToken)
 
   }
   onSubmit(): void {
@@ -39,16 +38,19 @@ export class LoginComponent implements OnInit {
 
       // })
       
-      // this.router.navigate(['/dashboard']);
+      this.router.navigate(['/dashboard']);
+      
+      // this.token$=this.store.select(selectToken)
 
-      this.token$.pipe(
-        tap(token => {
-          if (token) {
-            // If token is available, navigate to the home page
-            this.router.navigate(['/dashboard']);
-          }
-        })
-      ).subscribe();
+      // this.token$?.pipe(
+      //   tap(token => {
+      //     if (token) {
+      //       // If token is available, navigate to the home page
+      //       this.router.navigate(['/dashboard']);
+      //     }
+      //     else{this.router.navigate(['/dashboard'])}
+      //   })
+      // ).subscribe();
     }
   }
 }

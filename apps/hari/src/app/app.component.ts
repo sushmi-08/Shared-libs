@@ -4,7 +4,7 @@ import { NxWelcomeComponent } from './nx-welcome.component';
 import { filter } from 'rxjs';
 import { CommonModule } from '@angular/common';
 import { Store } from '@ngrx/store';
-import { userAction } from '@shared-libs/shared-lib';
+import { BusinessActions, userAction } from '@shared-libs/shared-lib';
 
 
 @Component({
@@ -15,7 +15,6 @@ import { userAction } from '@shared-libs/shared-lib';
   styleUrl: './app.component.css',
 })
 export class AppComponent implements OnInit {
-  isLoginPage=false
   isSpecialPage= false;
   constructor(private router:Router,private store:Store){}
   ngOnInit(): void {
@@ -23,14 +22,14 @@ export class AppComponent implements OnInit {
       filter(event => event instanceof NavigationEnd)
     ).subscribe(() => {
       // Check if the current route is 'login'
-      this.isLoginPage = this.router.url.includes('/login');
-      const specialRoutes = ['/login', '/insight',];
+      const specialRoutes = ['/login', '/insight'];
       this.isSpecialPage = specialRoutes.some(route => this.router.url.includes(route));
     });
   }
     logOut(){
       // this.authService.logout()
       this.store.dispatch(userAction.logout())
+      this.store.dispatch(BusinessActions.emptyBusiness())
       this.router.navigate(['/'])
     }
 

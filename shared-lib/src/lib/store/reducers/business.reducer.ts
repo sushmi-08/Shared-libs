@@ -1,5 +1,5 @@
 // libs/state/src/lib/reducers/company.reducer.ts
-import { createReducer, on } from '@ngrx/store';
+import { createReducer, on, State } from '@ngrx/store';
 
 
 import { Business } from '../../models/business.model';
@@ -37,7 +37,16 @@ export const businessReducer = createReducer(
     ...state,
     loading: false,
     error
-  }))
+  })),
+  on(BusinessActions.emptyBusiness,(state)=>({...state,business:{
+      id: 0,
+      name: '',
+      industry: '',
+      revenue: 0,
+      profit: 0,
+      users: 0,
+      subbrands: []
+  },error:null}))
 );
 
 // const initialState: ProductState = {

@@ -7,7 +7,7 @@ import { NGX_ECHARTS_CONFIG, } from 'ngx-echarts';
 import { NgxEchartsConfig } from 'ngx-echarts/lib/ngx-echarts.directive';
 import { BusinessEffects, businessReducer, UserEffect } from '@shared-libs/shared-lib';
 import { provideEffects } from '@ngrx/effects';
-import { HTTP_INTERCEPTORS, provideHttpClient } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 import { provideStoreDevtools } from '@ngrx/store-devtools';
 import { userReducer } from 'shared-lib/src/lib/store/reducers/user.reducer';
 import { TokenInterceptor } from './token.interceptor';
@@ -25,10 +25,14 @@ export const appConfig: ApplicationConfig = {
     provideEffects([BusinessEffects,UserEffect]),
     { provide: NGX_ECHARTS_CONFIG, useValue: ngxEchartsConfig },
     provideStoreDevtools({ maxAge: 25, logOnly: !isDevMode() }),
-    {
-      provide: HTTP_INTERCEPTORS,
-      useClass: TokenInterceptor,
-      multi: true  // This ensures multiple interceptors can be used in your app
-    },
+    // {
+    //   provide: HTTP_INTERCEPTORS,
+    //   useClass: TokenInterceptor,
+    //   multi: true  // This ensures multiple interceptors can be used in your app
+    // },
+    provideHttpClient(
+      withInterceptorsFromDi()
+    ),
+    { provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true }
 ],
 };
