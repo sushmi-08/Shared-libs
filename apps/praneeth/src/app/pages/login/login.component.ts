@@ -8,6 +8,8 @@ import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { userAction } from '@shared-libs/shared-lib';
 
+import { UserService } from '../../services/user.service';
+
 @Component({
   selector: 'app-login',
   standalone: true,
@@ -17,7 +19,7 @@ import { userAction } from '@shared-libs/shared-lib';
 })
 export class LoginComponent implements AfterViewInit, OnDestroy {
 
-  constructor (private store: Store, private router: Router, private elementRef: ElementRef) { }
+  constructor (private store: Store, private router: Router, private elementRef: ElementRef, public service: UserService) { }
 
   userCredentials: any = {
     email: '',
@@ -49,6 +51,11 @@ export class LoginComponent implements AfterViewInit, OnDestroy {
   }
 
   onSubmit() {
+    this.service.signIn(this.userCredentials).subscribe((res: any) => {
+      console.log(res)
+      localStorage.setItem('token', res.token);
+    })
+    
     this.store.dispatch(userAction.userLogin(this.userCredentials));
     this.router.navigate(['/home']);
   }

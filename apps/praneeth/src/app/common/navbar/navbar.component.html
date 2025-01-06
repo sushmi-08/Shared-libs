@@ -7,15 +7,36 @@
   <!-- Logo -->
   <div class="text-lg font-bold text-white cursor-pointer" routerLink="/home">E-Shop</div>
   <!-- Search Bar -->
-  <div class="relative">
+  <div class="relative search-container">
+    <!-- Search Input -->
     <input
       type="text"
       class="px-4 py-2 border rounded-lg w-64 focus:outline-none focus:ring-2 focus:ring-blue-500"
       placeholder="Search products..."
+      [formControl]="searchControl"
       (focus)="onSearchFocus()"
       (blur)="onSearchBlur()"
     />
+
+    <!-- Recommendations Dropdown -->
+    <ng-container *ngIf="isDropdownOpen && (filteredProducts$ | async) as filteredProducts">
+      <ul *ngIf="filteredProducts.length > 0" class="absolute z-10 bg-white border rounded-lg shadow-lg mt-2 w-full">
+        <li
+          *ngFor="let product of filteredProducts"
+          class="p-2 hover:bg-blue-100 cursor-pointer"
+          (click)="onProductSelect(product)"
+        >
+          {{ product.name }}
+        </li>
+      </ul>
+
+      <!-- "No results" message -->
+      <div *ngIf="filteredProducts.length === 0" class="text-gray-500 mt-2">
+        No matching products found.
+      </div>
+    </ng-container>
   </div>
+
   <!-- Cart -->
   <a class="text-white text-lg cursor-pointer" routerLink="/cart">🛒 Cart: {{service.cartQty()}}</a>
 </div>
