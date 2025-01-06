@@ -1,7 +1,9 @@
 import { Injectable } from '@angular/core';
 import { CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot, Router } from '@angular/router';
-import { Observable } from 'rxjs';
+import { map, Observable } from 'rxjs';
 import { AuthService } from './auth.service';
+import { Store } from '@ngrx/store';
+import { selectToken } from '@shared-libs/shared-lib';
   // Import your auth service
 
 @Injectable({
@@ -9,21 +11,23 @@ import { AuthService } from './auth.service';
 })
 export class AuthGuard implements CanActivate {
 
-  constructor(private authService:AuthService, private router: Router) {}
+  constructor(private authService:AuthService, private router: Router,private store:Store) {}
 
   canActivate(
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot
-  ): Observable<boolean> | Promise<boolean> | boolean {
-
-    // Check if the user is logged in (this logic depends on how you manage auth)
-    if (this.authService.isAuthenticated()) {
-      return true;
-    } else {
-      // If the user is not authenticated, redirect to the login page
-      this.router.navigate(['/login'], { queryParams: { returnUrl: state.url } });
-      return false;
+  ): Observable<boolean> | Promise<boolean> | boolean { 
+    return this.store.select(selectToken).pipe(
+      map((token: any) => {
+        if (token) {
+          return true;  // Allow access if the token is present
+        } else {
+          this.router.navigate(['/login']); // Redirect to login if not authenticated
+          return false;
+        }
+      })
+    );
     }
   }
-}
+
 

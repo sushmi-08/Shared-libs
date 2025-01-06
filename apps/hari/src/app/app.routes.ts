@@ -5,11 +5,11 @@ import { LoginComponent } from './login/login.component';
 import { AuthGuard } from './auth.guard';
 
 export const appRoutes: Route[] = [
-    {path:'',component:LoginComponent},
+    { path: 'login', component: LoginComponent },
     {path:"dashboard",component:DashboardComponent,canActivate:[AuthGuard]},
     { path: 'insights/:subbrand', component: InsightsComponent ,canActivate:[AuthGuard]},
     {
         path: '**',
-        redirectTo: ''
+        redirectTo: 'login'
       }
 ];
