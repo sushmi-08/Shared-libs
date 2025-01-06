@@ -19,9 +19,9 @@ export class BusinessEffects {
   business$ = createEffect(() =>
     this.actions$.pipe(
       ofType(BusinessActions.loadBusiness),
-      switchMap(() =>
+      switchMap(({userId}) =>
         this.http
-          .get<Business>(`http://localhost:4000/business`)
+          .get<Business>(`http://localhost:3000/user/${userId}/business`)
           .pipe(
             map((business) => {
               if (business) {

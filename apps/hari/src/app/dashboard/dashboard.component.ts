@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { BusinessDataService } from '../business-data.service';
 import { Business } from '../model';
 import { Router } from '@angular/router';
-import { selectBusiness, selectUser, userAction} from '@shared-libs/shared-lib'
+import { BusinessActions, selectBusiness, selectToken, selectUser, userAction} from '@shared-libs/shared-lib'
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { AuthService } from '../auth.service';
@@ -28,18 +28,20 @@ export class DashboardComponent implements OnInit {
     // this.store.dispatch(BusinessActions.loadBusiness())
     this.authService.userId()
     this.store.select(selectUser).subscribe(res=>{
-      console.log(res,"user")
-      this.businessData=res.data.business
+     
       this.username=res.data.name
+      this.store.dispatch(BusinessActions.loadBusiness({userId:res.data.id}))
     })
-//  this.loadBusinessData()
+    this.store.select(selectBusiness).subscribe(res=>{
+      this.businessData=res
+    })
+ this.store.select(selectToken).subscribe(res=>{
+  console.log("token",res)}
+  
+ )
 
   }
-  // loadBusinessData(): void {
-  //   this.businessService.getBusinessData().subscribe(data => {
-  //     this.businessData = data;
-  //   });
-  // }
+
   showInsights(id:number){
     this.router.navigate([`/insights/${id}`])
   }

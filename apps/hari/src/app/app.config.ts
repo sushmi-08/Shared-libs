@@ -29,6 +29,6 @@ export const appConfig: ApplicationConfig = {
       provide: HTTP_INTERCEPTORS,
       useClass: TokenInterceptor,
       multi: true  // This ensures multiple interceptors can be used in your app
-    }
+    },
 ],
 };

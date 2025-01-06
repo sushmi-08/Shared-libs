@@ -16,6 +16,7 @@ import { userAction } from '@shared-libs/shared-lib';
 })
 export class AppComponent implements OnInit {
   isLoginPage=false
+  isSpecialPage= false;
   constructor(private router:Router,private store:Store){}
   ngOnInit(): void {
     this.router.events.pipe(
@@ -23,6 +24,8 @@ export class AppComponent implements OnInit {
     ).subscribe(() => {
       // Check if the current route is 'login'
       this.isLoginPage = this.router.url.includes('/login');
+      const specialRoutes = ['/login', '/insight',];
+      this.isSpecialPage = specialRoutes.some(route => this.router.url.includes(route));
     });
   }
     logOut(){
