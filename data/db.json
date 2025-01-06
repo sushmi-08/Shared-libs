@@ -5,7 +5,7 @@
       "name": "MS Dhoni",
       "email": "dhoni@csk.com",
       "password": "1234",
-      "lastLogInAt": "2025-01-02T09:29:46.312Z",
+      "lastLogInAt": "2025-01-06T04:57:35.450Z",
       "boughtItems": [
         {
           "id": "102",
@@ -20,17 +20,22 @@
       ],
       "cartItems": [
         {
+          "id": "105",
+          "itemName": "Smartwatch",
+          "quantity": 1
+        },
+        {
           "id": "104",
           "itemName": "Headphones",
           "quantity": 1
         },
         {
-          "id": "105",
-          "itemName": "Smartwatch",
+          "id": "101",
+          "itemName": "Smartphone",
           "quantity": 1
         }
       ],
-      "cartItemCount": 2
+      "cartItemCount": 3
     },
     {
       "id": "2",

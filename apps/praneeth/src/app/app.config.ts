@@ -1,4 +1,4 @@
-import { provideHttpClient } from '@angular/common/http';
+import { provideHttpClient, withInterceptors } from '@angular/common/http';
 import {
 	ApplicationConfig,
 	isDevMode,
@@ -18,12 +18,13 @@ import {
 } from '@shared-libs/shared-lib';
 
 import { appRoutes } from './app.routes';
+import { tokenInterceptorFn } from './services/token-interceptor.service';
 
 export const appConfig: ApplicationConfig = {
   providers: [
     provideClientHydration(),
     provideZoneChangeDetection({ eventCoalescing: true }),
-    provideHttpClient(),
+    provideHttpClient(withInterceptors([tokenInterceptorFn])),
     provideRouter(appRoutes),
     provideStore({user: userReducer, products: productReducer}),
     provideEffects([AuthEffects, ProductEffects, CartEffects]),
