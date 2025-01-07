@@ -1,5 +1,5 @@
 export interface Grocery {
-    id: string;
+    id: number;
     grocery_name: string;
     image_url: string;
     quantity: number;

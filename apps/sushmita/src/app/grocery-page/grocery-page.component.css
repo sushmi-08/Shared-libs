@@ -10,3 +10,13 @@
     -webkit-text-fill-color: transparent; /* Make text transparent */
     text-align: center;
   }
+
+  .fullscreen-bg {
+    height: 100vh; /* Full screen height */
+    background-image: url('https://img.freepik.com/premium-vector/healthy-fresh-vegetable-clipart-vector-art-illustration_761413-21267.jpg');
+    background-size: cover; /* Makes the image cover the entire area */
+    background-position: center; /* Centers the image */
+    background-repeat: no-repeat; /* Prevents the image from repeating */
+    opacity: 0.8;
+  }
+  
