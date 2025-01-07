@@ -4,14 +4,12 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
 
-import { CartItem } from '../../models/cart.model';
 import { User } from '../../models/user.model';
 import {
 	addToCartActions,
 	cartQtyActions,
 	removeFromCartActions,
 } from '../actions/cart.action';
-import { productAction } from '../actions/product.action';
 
 @Injectable()
 export class CartEffects {

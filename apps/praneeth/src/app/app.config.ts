@@ -14,6 +14,7 @@ import {
 	CartEffects,
 	ProductEffects,
 	productReducer,
+	sessionReducer,
 	userReducer,
 } from '@shared-libs/shared-lib';
 
@@ -26,7 +27,7 @@ export const appConfig: ApplicationConfig = {
     provideZoneChangeDetection({ eventCoalescing: true }),
     provideHttpClient(withInterceptors([tokenInterceptorFn])),
     provideRouter(appRoutes),
-    provideStore({user: userReducer, products: productReducer}),
+    provideStore({user: userReducer, products: productReducer, session: sessionReducer}),
     provideEffects([AuthEffects, ProductEffects, CartEffects]),
     provideStoreDevtools({ maxAge: 25, logOnly: !isDevMode() }),
   ],

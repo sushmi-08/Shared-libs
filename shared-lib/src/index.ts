@@ -13,6 +13,7 @@ export * from './lib/store/effects/cart.effect';
 
 export * from './lib/store/reducers/user.reducer';
 export * from './lib/store/reducers/product.reducer';
+export * from './lib/store/reducers/session.reducer';
 
 export * from './lib/store/selectors/user.selector';
 export * from './lib/store/selectors/product.selector';

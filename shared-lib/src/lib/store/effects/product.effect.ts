@@ -16,11 +16,11 @@ export class ProductEffects {
       ofType(productAction.loadProducts),
       switchMap(() =>
         this.http
-          .get<Product[]>(`http://localhost:3000/products`)
+          .get<any>(`http://localhost:3001/api/getProducts`)
           .pipe(
             map((items) => {
-              if (items.length > 0) {
-                return productAction.loadProductsSuccess({products: items});
+              if (items.products.length > 0) {
+                return productAction.loadProductsSuccess({products: items.products});
               } else {
                 return productAction.loadProductsFailure({ error: 'Failed to load products' });
               }

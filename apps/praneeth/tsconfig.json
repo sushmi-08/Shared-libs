@@ -7,8 +7,7 @@
     "noPropertyAccessFromIndexSignature": true,
     "noImplicitReturns": true,
     "noFallthroughCasesInSwitch": true,
-    "useDefineForClassFields": false,
-    "typeRoots": ["node_modules/@types"]
+    "useDefineForClassFields": false
   },
   "files": [],
   "include": [],

@@ -17,6 +17,10 @@ export class UserService {
     return this.http.post<any>('http://localhost:3001/api/login', data);
   }
 
+  getProducts(): Observable<any> {
+    return this.http.get<any>('http://localhost:3001/api/getProducts');
+  }
+
   isLoggedIn() {
     return localStorage.getItem('token') != null;
   }

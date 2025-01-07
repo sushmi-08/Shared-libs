@@ -55,8 +55,9 @@ export class LoginComponent implements AfterViewInit, OnDestroy {
       console.log(res)
       localStorage.setItem('token', res.token);
     })
-    
+
     this.store.dispatch(userAction.userLogin(this.userCredentials));
+    this.store.dispatch(userAction.token({ token: (localStorage.getItem('token') as string) }));
     this.router.navigate(['/home']);
   }
 

@@ -18,6 +18,11 @@ const getUsers = () => {
   return JSON.parse(data).users;
 };
 
+const getProducts = () => {
+  const data = fs.readFileSync('../data/db.json', 'utf-8');
+  return JSON.parse(data).products;
+};
+
 // Login Route
 app.post('/api/login', (req, res) => {
   const { email, password } = req.body;
@@ -42,7 +47,7 @@ app.post('/api/login', (req, res) => {
 });
 
 // Protected Route (Example)
-app.get('/api/profile', (req, res) => {
+app.get('/api/getProducts', (req, res) => {
   const authHeader = req.headers['authorization'];
   const token = authHeader && authHeader.split(' ')[1];
 
@@ -50,7 +55,7 @@ app.get('/api/profile', (req, res) => {
 
   jwt.verify(token, JWT_SECRET, (err, user) => {
     if (err) return res.status(403).json({ message: 'Token is invalid or expired' });
-    res.json({ message: `Welcome ${user.email}!` });
+    res.json({ result: true, products: getProducts() });
   });
 });
 
