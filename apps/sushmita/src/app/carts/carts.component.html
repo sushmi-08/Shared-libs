@@ -1,0 +1,19 @@
+<div class="min-h-screen flex justify-center items-center bg-gradient-to-r from-gray-800 to-black">
+
+    <div style="margin-top: 3%; margin-left: 10%;">
+        <ul class="grocery-list" style="list-style-type: none; display: flex; flex-direction: row; gap: 41px;">
+            @for (grocery of groceries$ | async; track grocery.id){
+                <li class="grocery-item">
+                    <img [src]="grocery.image_url" style="height: 200px; width: 200px;" class="grocery-image">
+                    <br>
+                    <p class="grocery-info" style="color: white;">{{ grocery.grocery_name }} ({{ grocery.quantity }})</p>
+                    <button type="button" class="w-11 h-11 bg-indigo-50 rounded-lg flex items-center justify-center cursor-pointer transition-all duration-500 hover:bg-indigo-100" (click)="removeFromCart(grocery)">
+                        <svg width="10" height="2" viewBox="0 0 10 2" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M1 1H9" stroke="#5551FF" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path>
+                        </svg>
+                    </button>
+                </li>
+            }
+        </ul>
+    </div>
+</div>

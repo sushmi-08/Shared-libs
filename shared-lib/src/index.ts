@@ -11,3 +11,9 @@ export * from './lib/store/reducers/grocery.reducer';
 export * from './lib/store/effects/grocery.effect';
 export * from './lib/store/selectors/grocery.selector';
 
+export * from './lib/store/actions/carts.action';
+export * from './lib/store/reducers/carts.reducer';
+//export * from './lib/store/effects/carts.effect';
+export * from './lib/store/selectors/carts.selector';
+
+

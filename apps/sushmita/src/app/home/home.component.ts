@@ -17,12 +17,12 @@ export class HomeComponent {
   constructor(private store: Store, private router: Router, private elementRef: ElementRef){}
 
 
-    email: string= '';
-    password:string =  '';
+    email = '';
+    password =  '';
     
 
   onSubmit() {
-    //console.log(this.email);
+    console.log(this.email);
     this.store.dispatch(userAction.userLogin({ email: this.email, password: this.password }));
     this.router.navigate(['/grocery']);
   }
