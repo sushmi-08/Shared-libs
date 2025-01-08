@@ -4,7 +4,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
 
-import { User } from '../../models/user.model';
+import { Item, User } from '../../models/user.model';
 import {
 	addToCartActions,
 	cartQtyActions,
@@ -59,9 +59,9 @@ export class CartEffects {
       switchMap(({ userId, productId, productName }) =>
         this.http.get<User>(`http://localhost:3000/users/${userId}`).pipe(
           switchMap((user) => {
-            const existingItem = user.cartItems.find((item) => item.id === productId);
+            const existingItem = user.cartItems?.find((item) => item.id === productId);
             const updatedCartItems = existingItem
-              ? user.cartItems.map((item) =>
+              ? user.cartItems?.map((item) =>
                   item.id === productId
                     ? { ...item, quantity: item.quantity + 1 }
                     : item
@@ -86,7 +86,7 @@ export class CartEffects {
       switchMap(({ userId, productId }) =>
         this.http.get<User>(`http://localhost:3000/users/${userId}`).pipe(
           switchMap((user) => {
-            const updatedCartItems = user.cartItems
+            const updatedCartItems = (user.cartItems as Item[])
               .map((item) =>
                 item.id === productId
                   ? { ...item, quantity: item.quantity - 1 }

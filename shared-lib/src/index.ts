@@ -17,3 +17,4 @@ export * from './lib/store/reducers/session.reducer';
 
 export * from './lib/store/selectors/user.selector';
 export * from './lib/store/selectors/product.selector';
+export * from './lib/store/selectors/session.selector';

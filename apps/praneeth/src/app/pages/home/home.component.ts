@@ -42,7 +42,13 @@ export class HomeComponent implements OnInit {
       this.cartQty = cartQty as number;
     });
 
-    this.store.dispatch(productAction.loadProducts());
+    setTimeout(() => {
+      this.store.select(selectProducts).pipe(take(1)).subscribe((products) => {
+        if (products?.length === 0) {
+          this.store.dispatch(productAction.loadProducts());
+        }
+      });
+    }, 2000)
   }
 
   showSidebar = false;

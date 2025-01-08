@@ -52,7 +52,6 @@ export class LoginComponent implements AfterViewInit, OnDestroy {
 
   onSubmit() {
     this.service.signIn(this.userCredentials).subscribe((res: any) => {
-      console.log(res)
       localStorage.setItem('token', res.token);
     })
 
