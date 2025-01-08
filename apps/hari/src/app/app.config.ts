@@ -18,18 +18,13 @@ const ngxEchartsConfig: NgxEchartsConfig = {
 export const appConfig: ApplicationConfig = {
   providers: [
     provideClientHydration(),
-    provideHttpClient(),
+    // provideHttpClient(),
     provideZoneChangeDetection({ eventCoalescing: true }),
     provideRouter(appRoutes),
     provideStore({business: businessReducer,user:userReducer}),
     provideEffects([BusinessEffects,UserEffect]),
     { provide: NGX_ECHARTS_CONFIG, useValue: ngxEchartsConfig },
     provideStoreDevtools({ maxAge: 25, logOnly: !isDevMode() }),
-    // {
-    //   provide: HTTP_INTERCEPTORS,
-    //   useClass: TokenInterceptor,
-    //   multi: true  // This ensures multiple interceptors can be used in your app
-    // },
     provideHttpClient(
       withInterceptorsFromDi()
     ),

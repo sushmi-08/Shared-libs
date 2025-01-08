@@ -27,9 +27,7 @@ export class AuthService {
     this.router.navigate(['/'])
     ;
   }
-  userId(){
-    console.log( localStorage.getItem('user')) 
-  }
+ 
 
   // A simple method to log in the user
   login(userData: any): void {

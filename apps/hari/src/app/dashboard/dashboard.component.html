@@ -47,6 +47,7 @@
                 <th class="px-4 py-3 text-left text-sm font-medium text-gray-700">Profit</th>
                 <th class="px-4 py-3 text-left text-sm font-medium text-gray-700">Users</th>
                 <th class="px-4 py-3 text-left text-sm font-medium text-gray-700">Growth Rate</th>
+                <th class="px-4 py-3 text-left text-sm font-medium text-gray-700"> Actions</th>
 
               </tr>
             </thead>
@@ -54,15 +55,25 @@
               <tr
                 *ngFor="let subbrand of  businessData?.subbrands"
                 class="hover:bg-gray-50 cursor-pointer"
-                (click)="showInsights(subbrand.id)"
+
 
               >
-                <td class="px-4 py-3 text-sm text-gray-700">{{ subbrand.name }}</td>
+                <td class="px-4 py-3 text-sm text-gray-700" (click)="showInsights(subbrand.id)">{{ subbrand.name }}</td>
                 <td class="px-4 py-3 text-sm text-gray-700">{{ subbrand.industry  }}</td>
                 <td class="px-4 py-3 text-sm text-gray-700">{{ subbrand.revenue | currency }}</td>
                 <td class="px-4 py-3 text-sm text-gray-700">{{ subbrand.profit |currency}}</td>
                 <td class="px-4 py-3 text-sm text-gray-700">{{ subbrand.users |number}}</td>
                 <td class="px-4 py-3 text-sm text-gray-700">{{ subbrand.growthRate }}%</td>
+                <td class="px-4 py-3 text-sm text-gray-700">
+                  <button
+                  (click)="removeSubbrand(subbrand.id)"
+                    class="text-red-600 hover:text-red-800 focus:outline-none"
+                  >
+                  <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                  </svg>
+                  </button>
+                </td>
                 <!-- <td class="px-4 py-3 text-sm text-gray-700">${{ subbrand.insights | number }}</td> -->
 
               </tr>

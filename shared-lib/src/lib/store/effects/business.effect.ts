@@ -36,18 +36,25 @@ export class BusinessEffects {
       )
     )
   );
-  //   loadCompanies$ = createEffect(() =>
-//     this.actions$.pipe(
-//       ofType(loadBusiness),
-//       switchMap(() =>
-//         this.businessService.getBusiness().pipe(
-            
-//           map(business => loadBusinessSuccess({ business })),
-//           catchError(error => of(loadBusinessFailure({ error: error.message })))
-//         )
-//       )
-//     )
-//   );
+
+  removeBusiness$ = createEffect(() =>
+    this.actions$.pipe(
+      ofType(BusinessActions.removeBusiness),
+      switchMap(({ userId,subbrandId }) =>
+        this.http.post<any>(`http://localhost:3000/user/subbrand/delete`, {userId,subbrandId}).pipe(
+          map((response) => {
+            if (response) {
+                console.log("response",response.response.business)
+              return BusinessActions.removeBusinessSuccess({ business:response.response.business});
+            } else {
+              return BusinessActions.removeBusinessFailure({ error: 'Failed to remove business' });
+            }
+          }),
+          catchError(() => of(BusinessActions.removeBusinessFailure({ error: 'Server error' })))
+        )
+      )
+    )
+  );
 
 
   

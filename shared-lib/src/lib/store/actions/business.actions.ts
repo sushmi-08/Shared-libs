@@ -16,9 +16,12 @@ import { Business } from '../../models/business.model';
 export const BusinessActions = createActionGroup({
     source: 'Business',
     events: {
-      'Load Business': props<{userId:string}>(),
+      'Load Business': props<{userId:number}>(),
       'Load Business Success': props<{business: Business}>(),
       'Load Business Failure': props<{error: string}>(),
-      'Empty Business':emptyProps()
+      'Empty Business':emptyProps(),
+      'Remove Business': props<{userId:number, subbrandId: number }>(),
+      'Remove Business Success': props<{business:any }>(),
+      'Remove Business Failure': props<{ error: string }>(),
     },
   })

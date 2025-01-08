@@ -6,7 +6,7 @@ import { Business } from '../../models/business.model';
 import { BusinessActions } from '../actions/business.actions';
 
 export interface BusinessState {
-  business: Business;
+  business: Business|null;
   loading: boolean;
   error: string | null;
 }
@@ -46,18 +46,23 @@ export const businessReducer = createReducer(
       profit: 0,
       users: 0,
       subbrands: []
-  },error:null}))
+  },error:null})),
+  on(BusinessActions.removeBusiness, (state) => ({
+    ...state,
+    loading: true
+  })),
+  on(BusinessActions.removeBusinessSuccess, (state, { business }) => ({
+    ...state,
+    loading: false,
+    business,
+    error: null
+  })),
+  on(BusinessActions.removeBusinessFailure, (state, { error }) => ({
+    ...state,
+    loading: false,
+    error
+  }))
+  
 );
 
-// const initialState: ProductState = {
-//     products: [],
-//     loading: false,
-//     error: null,
-//   };
-  
-//   export const productReducer = createReducer(
-//     initialState,
-//     on(productAction.loadProducts, (state) => ({ ...state, loading: true, error: null })),
-//     on(productAction.loadProductsSuccess, (state, { products }) => ({ ...state, products, loading: false, error: null })),
-//     on(productAction.loadProductsFailure, (state, { error }) => ({ ...state, loading: false, error }))
-//   )
+

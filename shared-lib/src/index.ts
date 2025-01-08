@@ -10,5 +10,6 @@ export * from './lib/store/effects/business.effect';
 export * from './lib/store/reducers/business.reducer';
 export * from './lib/store/actions/user.action';
 export * from './lib/store/effects/user.effect';
+export * from './lib/store/selectors/business.selector';
 
 

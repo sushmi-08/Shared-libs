@@ -21,29 +21,42 @@ import { AuthService } from '../auth.service';
 })
 export class DashboardComponent implements OnInit {
   constructor( private businessService: BusinessDataService,private router:Router,private store:Store,private authService:AuthService){}
+  userId=0
   username:'' | undefined
-  businessData?:Business
+  businessData?:Business|null
   business$?:Observable<Business>
   ngOnInit(): void {
     // this.store.dispatch(BusinessActions.loadBusiness())
-    this.authService.userId()
+    // this.store.select(selectUser).subscribe(res=>{
+    //   this.userId=this.username=res.data.id
+    //   this.username=res.data.name
+    //   this.store.dispatch(BusinessActions.loadBusiness({userId:res.data.id}))
+    // })
+ this.loadData()
+
+  }
+  loadData(){
     this.store.select(selectUser).subscribe(res=>{
-     
+      this.userId=this.username=res.data.id
       this.username=res.data.name
       this.store.dispatch(BusinessActions.loadBusiness({userId:res.data.id}))
     })
     this.store.select(selectBusiness).subscribe(res=>{
       this.businessData=res
+      // this.business$=res
     })
- this.store.select(selectToken).subscribe(res=>{
-  console.log("token",res)}
-  
- )
-
   }
 
   showInsights(id:number){
     this.router.navigate([`/insights/${id}`])
+  }
+  removeSubbrand(subbrandId:any){
+    this.store.dispatch(BusinessActions.removeBusiness({userId:this.userId,subbrandId:subbrandId}))
+    this.store.select(selectBusiness).subscribe(res=>{
+      this.businessData=res
+      // this.business$=res
+    })
+    
   }
   logOut(){
     // this.authService.logout()
