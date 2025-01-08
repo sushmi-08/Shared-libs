@@ -22,12 +22,39 @@ const ngxEchartsConfig: NgxEchartsConfig = {
 export class InsightsComponent implements OnInit{
 
   subbrandId?: number;
-  business: Business | undefined;
-  subbrand: Subbrand | undefined ;
+  business: Business ={
+    id: 0,
+    name: '',
+    industry: '',
+    revenue: 0,
+    profit: 0,
+    users: 0,
+    subbrands: []
+  }
+  subbrand:Subbrand={
+    id: 0,
+    name: '',
+    industry: '',
+    revenue: 0,
+    profit: 0,
+    users: 0,
+    market: '',
+    growthRate: 0,
+    insights: '',
+    products: [],
+    performanceMetrics: {
+      quarterlyRevenue: [],
+      quarterlyProfit: [],
+      quarterlyUsers: [],
+      marketShare: 0,
+      customerSatisfaction: 0
+    }
+  }
   displayedColumns: string[] = ['name', 'category', 'revenue', 'profit']
   revenueChartOptions: EChartsOption = {};
   profitChartOptions: EChartsOption = {};
   pieChartOptions: EChartsOption={}
+
 
   constructor( private route: ActivatedRoute,
     private businessService: BusinessDataService){
