@@ -7,13 +7,14 @@ import { provideEffects } from '@ngrx/effects';
 import { AuthEffects, cartReducer, groceriesReducer, userReducer} from '@shared-libs/shared-lib';
 import { GroceriesEffects } from '@shared-libs/shared-lib';
 import { provideStoreDevtools } from '@ngrx/store-devtools';
-import { provideHttpClient } from '@angular/common/http';
+import { provideHttpClient, withInterceptors } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
+import { tokenInterceptorFn } from './services/token-interceptor.service';
 
 export const appConfig: ApplicationConfig = {
   providers: [
     provideClientHydration(),
-    provideHttpClient(),
+    provideHttpClient(withInterceptors([tokenInterceptorFn])),
     provideZoneChangeDetection({ eventCoalescing: true }),
     provideRouter(appRoutes),
     provideStore({groceries: groceriesReducer, user: userReducer, cart: cartReducer}),

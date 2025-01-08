@@ -16,14 +16,17 @@ import { CartsComponent } from '../carts/carts.component';
   styleUrl: './grocery-page.component.css',
 })
 export class GroceryPageComponent{
-  groceries$: Observable<Grocery[]>;
+  groceries$?: Observable<Grocery[]>;
   currentUser$: Observable<any>;
   isLoggedIn$: Observable<boolean>;
   
 
   constructor(private store: Store<{ groceries: Grocery[] }>, private router: Router) {
-    this.store.dispatch(loadGroceries());
-    this.groceries$ = this.store.select(selectGrocery);
+    setTimeout(() => {
+      this.store.dispatch(loadGroceries())
+      this.groceries$ = this.store.select(selectGrocery)
+    }, 2000)
+  
     // this.store.select(userSelector).subscribe((item)=>{
     //   console.log(item);
     // } );

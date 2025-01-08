@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { userAction } from '@shared-libs/shared-lib';
 import { FormsModule } from '@angular/forms';
+import { UserService } from '../services/user.service';
 
 @Component({
   selector: 'app-home',
@@ -14,7 +15,7 @@ import { FormsModule } from '@angular/forms';
 })
 export class HomeComponent {
 
-  constructor(private store: Store, private router: Router, private elementRef: ElementRef){}
+  constructor(private store: Store, private router: Router, private elementRef: ElementRef, private service: UserService){}
 
 
     email = '';
@@ -22,7 +23,13 @@ export class HomeComponent {
     
 
   onSubmit() {
-    console.log(this.email);
+    //console.log(this.email);
+    this.service.signIn({email: this.email, password: this.password}).subscribe((response) => {
+      if (response.result) {
+        localStorage.setItem('token', response.token)
+      }
+    })
+    
     this.store.dispatch(userAction.userLogin({ email: this.email, password: this.password }));
     this.router.navigate(['/grocery']);
   }

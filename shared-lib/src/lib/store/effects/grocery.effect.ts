@@ -22,8 +22,8 @@ export class GroceriesEffects {
     this.actions$.pipe(
       ofType(loadGroceries),
       mergeMap(() =>
-        this.http.get<Grocery[]>(`http://localhost:5000/groceryData`).pipe(
-          map((items) => loadGroceriesSuccess({ groceries: items })),
+        this.http.get<any>(`http://localhost:3001/api/getGrocery`).pipe(
+          map((items) => loadGroceriesSuccess({ groceries: items.res })),
           catchError(() => of(loadGroceriesFailure()))
         )
       )
