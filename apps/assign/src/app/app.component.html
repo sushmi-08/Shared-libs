@@ -1,0 +1,49 @@
+<div class="flex justify-between gap-10 my-5 mx-10">
+  <div class="flex justify-center gap-4">
+    @for (i of numbers; track $index) {
+      <div
+        class="h-10 w-10 flex justify-center items-center border-2 border-gray-100 bg-white cursor-pointer hover:bg-blue-50"
+        [ngClass]="{ 'bg-white': selectedNum() !== i, 'bg-blue-300 hover:bg-blue-300 cursor-default': selectedNum() === i && numFlag }"
+        (click)="onNumberClick(i); selectNum(i)"
+      >
+        <p>{{i}}</p>
+      </div>
+    }
+  </div>
+
+  <div class="flex justify-center gap-4">
+    @for (i of symbols; track $index) {
+      <div
+        class="h-10 w-10 flex justify-center items-center border-2 border-gray-100 bg-white hover:bg-blue-50 cursor-pointer"
+        [ngClass]="{ 'bg-white': selectedSym() !== i, 'bg-blue-300 hover:bg-blue-300 cursor-default': selectedSym() === i && symFlag }"
+        (click)="onSymbolClick(i); selectSym(i)"
+      >
+        <p>{{i}}</p>
+    </div>
+    }
+  </div>
+</div>
+
+<div class="flex justify-center items-center my-40">
+  <div class="h-10 w-10 flex justify-center items-center border-2 border-gray-100 bg-white">{{number1()}}</div>
+  <div class="h-10 w-10 flex justify-center items-center bg-white">{{symbol()}}</div>
+  <div class="h-10 w-10 flex justify-center items-center border-2 border-gray-100 bg-white">{{number2()}}</div>
+  <div class="h-10 w-10 flex justify-center items-center bg-white">=</div>
+  <div class="h-10 w-10 flex justify-center items-center border-2 border-gray-100 bg-white">{{result()}}</div>
+</div>
+
+<div class="flex justify-center gap-3 items-center my-5">
+  <button
+    class="text-white bg-red-500 hover:opacity-70 disabled:opacity-10 px-4 py-2 rounded-sm"
+    (click)="onReset()"
+  >
+    Reset
+  </button>
+  <button
+    class="text-white bg-green-700 hover:opacity-70 disabled:opacity-25 px-4 py-2 rounded-sm"
+    (click)="onSubmit()"
+    [disabled]="!(number1() && number2()) && !result()"
+  >
+    Submit
+  </button>
+</div>
