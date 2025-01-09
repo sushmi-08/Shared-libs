@@ -7,14 +7,13 @@ import {
   loadGroceries,
   loadGroceriesFailure,
   loadGroceriesSuccess,
-//   loadGroceriesSuccess,
-//   loadGroceriesFailure,
+
 } from '../actions/grocery.action';
 import { Grocery } from '../../models/grocery.model';
 
 @Injectable()
 export class GroceriesEffects {
-  //private apiUrl = 'http://localhost:3001/groceries';
+  
 
   constructor(private actions$: Actions, private http: HttpClient) {}
 

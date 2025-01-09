@@ -6,8 +6,8 @@
     "api": "json-server --watch grocery.json --port 5000",
     "api1": "json-server --watch user.json --port 3000",
     "test": "jest",
-  "test:watch": "jest --watch",
-  "test:coverage": "jest --coverage"
+    "test:watch": "jest --watch",
+    "test:coverage": "jest --coverage"
   },
   "private": true,
   "dependencies": {
@@ -64,6 +64,7 @@
     "eslint-config-prettier": "^9.0.0",
     "jest": "^29.7.0",
     "jest-environment-jsdom": "^29.4.1",
+    "jest-marbles": "^3.1.0",
     "jest-preset-angular": "~14.1.0",
     "jsonc-eslint-parser": "^2.1.0",
     "ng-packagr": "~18.1.0",

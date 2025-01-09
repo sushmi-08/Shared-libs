@@ -4,16 +4,7 @@ import { userAction } from '../actions/user-sush.action';
 import { initialAuthState } from '../../auth.state';
 
 
-// export interface UserState {
-//     user: User | null;
-//     error: string | null;
-//   }
 
-//   const initialState : UserState= {
-//     user: null,
-//     error: null
-
-//   }
 
 
   
